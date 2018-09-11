@@ -12,7 +12,6 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
     
     // MARK: Outlets
     
-    
     // MARK: Injections
     var presenter: ___VARIABLE_sceneName___PresenterInput!
     var configurator: ___VARIABLE_sceneName___Configurable!
@@ -27,7 +26,6 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
         
     }
 
-    
 }
 
 // MARK: - ___VARIABLE_sceneName___PresenterOutput

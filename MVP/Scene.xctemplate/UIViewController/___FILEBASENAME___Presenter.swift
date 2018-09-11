@@ -8,18 +8,17 @@
 
 import Foundation
 
-protocol ___VARIABLE_sceneName___PresenterInput {
+protocol ___VARIABLE_sceneName___PresenterInput: BasePresenterInput {
     
     var router: ___VARIABLE_sceneName___Routable { get }
-    func viewDidLoad()
     
 }
 
-protocol ___VARIABLE_sceneName___PresenterOutput: class {
+protocol ___VARIABLE_sceneName___PresenterOutput: BasePresenterOutput {
     
 }
 
-class ___VARIABLE_sceneName___Presenter:  ___VARIABLE_sceneName___PresenterInput {
+class ___VARIABLE_sceneName___Presenter {
     
     //MARK: Injections
     private weak var output: ___VARIABLE_sceneName___PresenterOutput?
@@ -33,10 +32,14 @@ class ___VARIABLE_sceneName___Presenter:  ___VARIABLE_sceneName___PresenterInput
         self.router = router
     }
     
-    //MARK: ___VARIABLE_sceneName___PresenterInput
+}
+
+// MARK: - ___VARIABLE_sceneName___PresenterInput
+extension ___VARIABLE_sceneName___Presenter: ___VARIABLE_sceneName___PresenterInput {
+    
     func viewDidLoad() {
         
     }
+    
 }
-
 
