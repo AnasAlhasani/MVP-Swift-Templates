@@ -7,7 +7,6 @@ class LoginViewController: UIViewController {
     
     // MARK: Outlets
     
-    
     // MARK: Injections
     var presenter: LoginPresenterInput!
     var configurator: LoginConfigurable!
@@ -28,23 +27,21 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginPresenterOutput {
 
 }
-
 ```
 
 * `Presenter`
 ```swift
-protocol LoginPresenterInput {
+protocol LoginPresenterInput: BasePresenterInput {
     
     var router: LoginRoutable { get }
-    func viewDidLoad()
     
 }
 
-protocol LoginPresenterOutput: class {
+protocol LoginPresenterOutput: BasePresenterOutput {
     
 }
 
-class LoginPresenter:  LoginPresenterInput {
+class LoginPresenter {
     
     //MARK: Injections
     private weak var output: LoginPresenterOutput?
@@ -58,10 +55,15 @@ class LoginPresenter:  LoginPresenterInput {
         self.router = router
     }
     
-    //MARK: LoginPresenterInput
+}
+
+// MARK: - LoginPresenterInput
+extension LoginPresenter: LoginPresenterInput {
+    
     func viewDidLoad() {
         
     }
+    
 }
 ```
 
@@ -91,22 +93,25 @@ class LoginConfigurator: LoginConfigurable {
 
 * `Router`
 ```swift
-protocol LoginRoutable {
+protocol LoginRoutable: ViewRoutable {
     
 }
 
-class LoginRouter: LoginRoutable {
+class LoginRouter {
     
-    //MARK: Injections
-    private weak var viewController: LoginViewController?
+    // MARK: Injections
+    weak var viewController: UIViewController?
     
-    //MARK: LifeCycle
-    init(viewController: LoginViewController) {
+    // MARK: LifeCycle
+    required init(viewController: UIViewController) {
         self.viewController = viewController
     }
     
-    //MARK: LoginRoutable
+}
 
+// MARK: - LoginRoutable
+extension LoginRouter: LoginRoutable {
+    
 }
 ```
 
