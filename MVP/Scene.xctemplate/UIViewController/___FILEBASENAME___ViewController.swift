@@ -20,7 +20,6 @@ class ___VARIABLE_sceneName___ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configurator = ___VARIABLE_sceneName___Configurator()
         configurator.configure(viewController: self)
         presenter.viewDidLoad()
         
